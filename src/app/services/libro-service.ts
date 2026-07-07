@@ -24,12 +24,12 @@ export class LibroService {
 
   //Método PUT
 putLibro(id:number, libro:Libro):Observable<Libro>{
-  return this.http.put<Libro>(`${this.API_LIBROS}/${id}`, libro);
+  return this.http.put<Libro>(`${this.API_LIBROS}/actualizarLibro/${id}`, libro);
 }
 
 //Método DELETE
 deleteLibro(id:number):Observable<void>{
-  return this.http.delete<void>(`${this.API_LIBROS}/${id}`);
+  return this.http.delete<void>(`${this.API_LIBROS}/eliminarLibro/${id}`);
 }
 
 }
