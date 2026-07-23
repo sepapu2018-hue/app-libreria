@@ -11,37 +11,37 @@ import { FormsModule } from '@angular/forms';
 })
 export class Libros {
   private servicioLibro = inject(LibroService);
-    
+
     listaLibros = signal<Libro[]>([]);
-  
+
     nuevoLibro:Libro={
       titulo:'',
       numeroPaginas:0,
       editorial:''
     };
-    
+
     ngOnInit(){
       this.obtenerLibros();
     }
-  
+
     //Método obtenerUsuarios
     obtenerLibros(){
       this.servicioLibro.getLibros().subscribe(datosLibros=>{
         this.listaLibros.set(datosLibros)
       });
     }
-  
+
     //Método eliminarUsuario
     eliminarLibro(id:number){
         this.servicioLibro.deleteLibro(id).subscribe(()=>{
           this.obtenerLibros();
         })
       }
-    
+
   seleccionarParaEditar(book:Libro){
     this.nuevoLibro={ ...book};
   }
-  
+
     //Método guardarUsuario
     guardarLibro(){
       if(this.nuevoLibro.id){
