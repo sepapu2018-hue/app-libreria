@@ -9,7 +9,7 @@ import { Libro } from '../model/libro';
 export class LibroService {
   private http = inject(HttpClient);
 
-  private API_LIBROS = 'http://3.15.213.52:8080/libros';
+  private API_LIBROS = 'http://18.216.93.128:8080/libros';
 
   //Método GET
   getLibros():Observable<Libro[]>{
